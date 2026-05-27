@@ -1,0 +1,15 @@
+#ifndef CONSTANTS_H
+#define CONSTANTS_H
+
+#define WINDOW_WIDTH 400
+#define WINDOW_HEIGHT 700
+
+#define BUTTON_WIDTH 75
+#define BUTTON_HEIGHT 75
+
+#define BUTTON_PADDING 15
+
+#define GRID_START_X 30
+#define GRID_START_Y 220
+
+#endif
