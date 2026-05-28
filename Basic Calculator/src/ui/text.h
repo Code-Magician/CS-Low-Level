@@ -19,4 +19,12 @@ void DrawCenteredText(
     SDL_FRect rect
 );
 
+void DrawResponsiveDisplayText(
+    SDL_Renderer* renderer,
+    TTF_Font* font,
+    const char* text,
+    SDL_FRect rect,
+    float time
+);
+
 #endif

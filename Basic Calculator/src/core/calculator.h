@@ -5,15 +5,19 @@ typedef struct
 {
     char expression[256];
 
-    double firstNumber;
-
-    char currentOperator;
-
 } CalculatorState;
 
 void AppendToExpression(
     CalculatorState* calculator,
     const char* value
+);
+
+void RemoveLastCharacter(
+    CalculatorState* calculator
+);
+
+void ClearExpression(
+    CalculatorState* calculator
 );
 
 void EvaluateExpression(

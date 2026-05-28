@@ -17,7 +17,10 @@
 
 void RunApplication()
 {
-    // SDL Init
+    // =========================
+    // SDL INIT
+    // =========================
+
     if (SDL_Init(SDL_INIT_VIDEO) == false)
     {
         SDL_Log(
@@ -28,7 +31,10 @@ void RunApplication()
         return;
     }
 
-    // TTF Init
+    // =========================
+    // TTF INIT
+    // =========================
+
     if (TTF_Init() == false)
     {
         SDL_Log(
@@ -39,7 +45,10 @@ void RunApplication()
         return;
     }
 
-    // Window
+    // =========================
+    // WINDOW
+    // =========================
+
     SDL_Window* window =
         SDL_CreateWindow(
             "Beautiful Calculator",
@@ -58,7 +67,12 @@ void RunApplication()
         return;
     }
 
-    // Renderer
+    SDL_StartTextInput(window);
+
+    // =========================
+    // RENDERER
+    // =========================
+
     SDL_Renderer* renderer =
         SDL_CreateRenderer(
             window,
@@ -75,11 +89,14 @@ void RunApplication()
         return;
     }
 
-    // Font
+    // =========================
+    // FONT
+    // =========================
+
     TTF_Font* font =
         TTF_OpenFont(
             "assets/font.ttf",
-            32
+            28
         );
 
     if (!font)
@@ -92,30 +109,48 @@ void RunApplication()
         return;
     }
 
-    // Labels
-    const char* labels[16] =
+    // =========================
+    // BUTTON LABELS
+    // =========================
+
+    const char* labels[20] =
     {
-        "7","8","9","/",
-        "4","5","6","*",
-        "1","2","3","-",
-        "0",".","=","+"
+        "C", "⌫", "/", "*",
+        "7", "8", "9", "-",
+        "4", "5", "6", "+",
+        "1", "2", "3", "=",
+        "0", ".", "(", ")"
     };
 
-    // Buttons
-    Button buttons[16];
+    // =========================
+    // BUTTONS
+    // =========================
 
-    for (int i = 0; i < 16; i++)
+    Button buttons[20];
+
+    for (int i = 0; i < 20; i++)
     {
         int row = i / 4;
         int col = i % 4;
 
-        SDL_Color normal = BUTTON_COLOR;
-        SDL_Color hover = BUTTON_HOVER;
+        SDL_Color normal =
+            BUTTON_COLOR;
 
-        if (strchr("+-*/=", labels[i][0]))
+        SDL_Color hover =
+            BUTTON_HOVER;
+
+        if (
+            strchr(
+                "+-*/=C⌫",
+                labels[i][0]
+            )
+        )
         {
-            normal = OPERATOR_COLOR;
-            hover = OPERATOR_HOVER;
+            normal =
+                OPERATOR_COLOR;
+
+            hover =
+                OPERATOR_HOVER;
         }
 
         buttons[i] = (Button)
@@ -149,7 +184,10 @@ void RunApplication()
         };
     }
 
-    // Calculator State
+    // =========================
+    // CALCULATOR
+    // =========================
+
     CalculatorState calculator =
     {
         .expression = ""
@@ -162,7 +200,10 @@ void RunApplication()
     Uint64 previousTicks =
         SDL_GetTicks();
 
-    // Main Loop
+    // =========================
+    // MAIN LOOP
+    // =========================
+
     while (running)
     {
         Uint64 currentTicks =
@@ -172,7 +213,8 @@ void RunApplication()
             (currentTicks - previousTicks)
             / 1000.0f;
 
-        previousTicks = currentTicks;
+        previousTicks =
+            currentTicks;
 
         float mouseX;
         float mouseY;
@@ -182,9 +224,13 @@ void RunApplication()
             &mouseY
         );
 
-        // Events
+        // =========================
+        // EVENTS
+        // =========================
+
         while (SDL_PollEvent(&event))
         {
+            // CLOSE
             if (
                 event.type ==
                 SDL_EVENT_QUIT
@@ -193,13 +239,78 @@ void RunApplication()
                 running = false;
             }
 
-            // Mouse Down
+            // =========================
+            // TEXT INPUT
+            // =========================
+
+            if (
+                event.type ==
+                SDL_EVENT_TEXT_INPUT
+            )
+            {
+                AppendToExpression(
+                    &calculator,
+                    event.text.text
+                );
+            }
+
+            // =========================
+            // KEYBOARD
+            // =========================
+
+            if (
+                event.type ==
+                SDL_EVENT_KEY_DOWN
+            )
+            {
+                SDL_Keycode key =
+                    event.key.key;
+
+                SDL_Scancode scan =
+                    event.key.scancode;
+
+                // ENTER
+                if (
+                    key == SDLK_RETURN ||
+                    scan == SDL_SCANCODE_KP_ENTER
+                )
+                {
+                    EvaluateExpression(
+                        &calculator
+                    );
+                }
+
+                // BACKSPACE
+                if (
+                    key == SDLK_BACKSPACE
+                )
+                {
+                    RemoveLastCharacter(
+                        &calculator
+                    );
+                }
+
+                // CLEAR
+                if (
+                    key == SDLK_ESCAPE
+                )
+                {
+                    ClearExpression(
+                        &calculator
+                    );
+                }
+            }
+
+            // =========================
+            // MOUSE DOWN
+            // =========================
+
             if (
                 event.type ==
                 SDL_EVENT_MOUSE_BUTTON_DOWN
             )
             {
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < 20; i++)
                 {
                     if (
                         IsPointInsideButton(
@@ -209,19 +320,52 @@ void RunApplication()
                         )
                     )
                     {
-                        buttons[i].pressed = true;
+                        buttons[i].pressed =
+                            true;
 
                         const char* value =
                             buttons[i].text;
 
+                        // EQUALS
                         if (
-                            strcmp(value, "=") == 0
+                            strcmp(
+                                value,
+                                "="
+                            ) == 0
                         )
                         {
                             EvaluateExpression(
                                 &calculator
                             );
                         }
+
+                        // CLEAR
+                        else if (
+                            strcmp(
+                                value,
+                                "C"
+                            ) == 0
+                        )
+                        {
+                            ClearExpression(
+                                &calculator
+                            );
+                        }
+
+                        // BACKSPACE
+                        else if (
+                            strcmp(
+                                value,
+                                "⌫"
+                            ) == 0
+                        )
+                        {
+                            RemoveLastCharacter(
+                                &calculator
+                            );
+                        }
+
+                        // NORMAL INPUT
                         else
                         {
                             AppendToExpression(
@@ -233,20 +377,27 @@ void RunApplication()
                 }
             }
 
-            // Mouse Up
+            // =========================
+            // MOUSE UP
+            // =========================
+
             if (
                 event.type ==
                 SDL_EVENT_MOUSE_BUTTON_UP
             )
             {
-                for (int i = 0; i < 16; i++)
+                for (int i = 0; i < 20; i++)
                 {
-                    buttons[i].pressed = false;
+                    buttons[i].pressed =
+                        false;
                 }
             }
         }
 
-        // Background
+        // =========================
+        // BACKGROUND
+        // =========================
+
         SDL_SetRenderDrawColor(
             renderer,
             BACKGROUND_COLOR.r,
@@ -257,7 +408,10 @@ void RunApplication()
 
         SDL_RenderClear(renderer);
 
-        // Display Panel
+        // =========================
+        // DISPLAY PANEL
+        // =========================
+
         SDL_FRect display =
         {
             20,
@@ -268,10 +422,10 @@ void RunApplication()
 
         SDL_SetRenderDrawColor(
             renderer,
-            28,
-            28,
-            28,
-            255
+            PANEL_COLOR.r,
+            PANEL_COLOR.g,
+            PANEL_COLOR.b,
+            PANEL_COLOR.a
         );
 
         SDL_RenderFillRect(
@@ -279,55 +433,105 @@ void RunApplication()
             &display
         );
 
-        // Expression
-        DrawText(
+        // =========================
+        // NEON BORDER
+        // =========================
+
+        SDL_SetRenderDrawColor(
+            renderer,
+            0,
+            220,
+            255,
+            255
+        );
+
+        SDL_RenderRect(
+            renderer,
+            &display
+        );
+
+        // =========================
+        // GLOW BORDER
+        // =========================
+
+        for (int i = 0; i < 4; i++)
+        {
+            SDL_FRect glow =
+            {
+                display.x - i,
+                display.y - i,
+                display.w + i * 2,
+                display.h + i * 2
+            };
+
+            SDL_RenderRect(
+                renderer,
+                &glow
+            );
+        }
+
+        // =========================
+        // DISPLAY TEXT
+        // =========================
+
+        DrawResponsiveDisplayText(
             renderer,
             font,
             calculator.expression,
-            40,
-            100
+            display,
+            SDL_GetTicks() / 1000.0f
         );
 
-        // Draw Buttons
-    for (int i = 0; i < 16; i++)
-    {
-        buttons[i].hovered =
-            IsPointInsideButton(
+        // =========================
+        // BUTTONS
+        // =========================
+
+        for (int i = 0; i < 20; i++)
+        {
+            buttons[i].hovered =
+                IsPointInsideButton(
+                    &buttons[i],
+                    mouseX,
+                    mouseY
+                );
+
+            UpdateButtonAnimation(
                 &buttons[i],
-                mouseX,
-                mouseY
+                deltaTime
             );
 
-        UpdateButtonAnimation(
-            &buttons[i],
-            deltaTime
-        );
+            DrawButton(
+                renderer,
+                &buttons[i]
+            );
 
-        DrawButton(
-            renderer,
-            &buttons[i]
-        );
+            SDL_FRect textRect =
+            {
+                buttons[i].x,
+                buttons[i].y,
+                buttons[i].width,
+                buttons[i].height
+            };
 
-        SDL_FRect textRect =
-        {
-            buttons[i].x,
-            buttons[i].y,
-            buttons[i].width,
-            buttons[i].height
-        };
+            DrawCenteredText(
+                renderer,
+                font,
+                buttons[i].text,
+                textRect
+            );
+        }
 
-        DrawCenteredText(
-            renderer,
-            font,
-            buttons[i].text,
-            textRect
-        );
-    }
+        // =========================
+        // PRESENT FRAME
+        // =========================
 
         SDL_RenderPresent(renderer);
     }
 
-    // Cleanup
+    // =========================
+    // CLEANUP
+    // =========================
+
     TTF_CloseFont(font);
 
     SDL_DestroyRenderer(renderer);

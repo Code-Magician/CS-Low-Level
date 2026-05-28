@@ -1,5 +1,7 @@
 #include "button.h"
 
+#include "../utils/colors.h"
+
 static float Lerp(
     float a,
     float b,
@@ -7,83 +9,6 @@ static float Lerp(
 )
 {
     return a + (b - a) * t;
-}
-
-void DrawRoundedRect(
-    SDL_Renderer* renderer,
-    SDL_FRect rect,
-    int radius
-)
-{
-    // Center Rectangle
-    SDL_FRect center =
-    {
-        rect.x + radius,
-        rect.y,
-        rect.w - radius * 2,
-        rect.h
-    };
-
-    SDL_RenderFillRect(renderer, &center);
-
-    // Left Rectangle
-    SDL_FRect left =
-    {
-        rect.x,
-        rect.y + radius,
-        radius,
-        rect.h - radius * 2
-    };
-
-    SDL_RenderFillRect(renderer, &left);
-
-    // Right Rectangle
-    SDL_FRect right =
-    {
-        rect.x + rect.w - radius,
-        rect.y + radius,
-        radius,
-        rect.h - radius * 2
-    };
-
-    SDL_RenderFillRect(renderer, &right);
-
-    // Draw Corner Circles
-    for (int w = 0; w < radius * 2; w++)
-    {
-        for (int h = 0; h < radius * 2; h++)
-        {
-            int dx = radius - w;
-            int dy = radius - h;
-
-            if ((dx * dx + dy * dy) <= (radius * radius))
-            {
-                SDL_RenderPoint(
-                    renderer,
-                    rect.x + radius + dx,
-                    rect.y + radius + dy
-                );
-
-                SDL_RenderPoint(
-                    renderer,
-                    rect.x + rect.w - radius + dx,
-                    rect.y + radius + dy
-                );
-
-                SDL_RenderPoint(
-                    renderer,
-                    rect.x + radius + dx,
-                    rect.y + rect.h - radius + dy
-                );
-
-                SDL_RenderPoint(
-                    renderer,
-                    rect.x + rect.w - radius + dx,
-                    rect.y + rect.h - radius + dy
-                );
-            }
-        }
-    }
 }
 
 void UpdateButtonAnimation(
@@ -95,7 +20,7 @@ void UpdateButtonAnimation(
 
     if (button->hovered)
     {
-        targetScale = 1.08f;
+        targetScale = 1.05f;
     }
 
     if (button->pressed)
@@ -141,42 +66,116 @@ void DrawButton(
         scaledHeight
     };
 
-    // Shadow
-    SDL_SetRenderDrawColor(
-        renderer,
-        0,
-        0,
-        0,
-        80
-    );
+    // =========================
+    // OUTER GLOW
+    // =========================
 
-    SDL_FRect shadow =
-    {
-        rect.x + 4,
-        rect.y + 4,
-        rect.w,
-        rect.h
-    };
-
-    DrawRoundedRect(
-        renderer,
-        shadow,
-        16
-    );
-
-    // Button
     SDL_SetRenderDrawColor(
         renderer,
         currentColor.r,
         currentColor.g,
         currentColor.b,
-        currentColor.a
+        40
     );
 
-    DrawRoundedRect(
+    for (int i = 0; i < 6; i++)
+    {
+        SDL_FRect glow =
+        {
+            rect.x - i,
+            rect.y - i,
+            rect.w + i * 2,
+            rect.h + i * 2
+        };
+
+        SDL_RenderRect(
+            renderer,
+            &glow
+        );
+    }
+
+    // =========================
+    // MAIN BUTTON BODY
+    // =========================
+
+    SDL_SetRenderDrawColor(
         renderer,
-        rect,
-        16
+        currentColor.r,
+        currentColor.g,
+        currentColor.b,
+        255
+    );
+
+    SDL_RenderFillRect(
+        renderer,
+        &rect
+    );
+
+    // =========================
+    // INNER PANEL
+    // =========================
+
+    SDL_SetRenderDrawColor(
+        renderer,
+        10,
+        10,
+        18,
+        255
+    );
+
+    SDL_FRect inner =
+    {
+        rect.x + 4,
+        rect.y + 4,
+        rect.w - 8,
+        rect.h - 8
+    };
+
+    SDL_RenderFillRect(
+        renderer,
+        &inner
+    );
+
+    // =========================
+    // TOP HIGHLIGHT
+    // =========================
+
+    SDL_SetRenderDrawColor(
+        renderer,
+        255,
+        255,
+        255,
+        60
+    );
+
+    SDL_FRect highlight =
+    {
+        rect.x + 2,
+        rect.y + 2,
+        rect.w - 4,
+        4
+    };
+
+    SDL_RenderFillRect(
+        renderer,
+        &highlight
+    );
+
+    // =========================
+    // BORDER
+    // =========================
+
+    SDL_SetRenderDrawColor(
+        renderer,
+        255,
+        255,
+        255,
+        80
+    );
+
+    SDL_RenderRect(
+        renderer,
+        &rect
     );
 }
 
