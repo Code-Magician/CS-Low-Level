@@ -12,4 +12,11 @@ void DrawText(
     int y
 );
 
+void DrawCenteredText(
+    SDL_Renderer* renderer,
+    TTF_Font* font,
+    const char* text,
+    SDL_FRect rect
+);
+
 #endif

@@ -10,13 +10,11 @@ void DrawText(
     int y
 )
 {
-    // Safety Checks
     if (!renderer || !font || !text)
     {
         return;
     }
 
-    // Prevent Empty Text Crash
     if (strlen(text) == 0)
     {
         return;
@@ -40,11 +38,6 @@ void DrawText(
 
     if (!surface)
     {
-        SDL_Log(
-            "Failed To Create Text Surface: %s",
-            SDL_GetError()
-        );
-
         return;
     }
 
@@ -78,4 +71,42 @@ void DrawText(
     SDL_DestroyTexture(texture);
 
     SDL_DestroySurface(surface);
+}
+
+void DrawCenteredText(
+    SDL_Renderer* renderer,
+    TTF_Font* font,
+    const char* text,
+    SDL_FRect rect
+)
+{
+    if (!text || strlen(text) == 0)
+    {
+        return;
+    }
+
+    int textWidth;
+    int textHeight;
+
+    TTF_GetStringSize(
+        font,
+        text,
+        0,
+        &textWidth,
+        &textHeight
+    );
+
+    int x =
+        rect.x + (rect.w - textWidth) / 2;
+
+    int y =
+        rect.y + (rect.h - textHeight) / 2;
+
+    DrawText(
+        renderer,
+        font,
+        text,
+        x,
+        y
+    );
 }

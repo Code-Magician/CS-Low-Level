@@ -18,15 +18,26 @@ typedef struct
     const char* text;
 
     bool hovered;
+    bool pressed;
+
+    float scale;
 
 } Button;
 
-void DrawButton(SDL_Renderer* renderer, Button* button);
+void DrawButton(
+    SDL_Renderer* renderer,
+    Button* button
+);
 
 bool IsPointInsideButton(
     Button* button,
     float mouseX,
     float mouseY
+);
+
+void UpdateButtonAnimation(
+    Button* button,
+    float deltaTime
 );
 
 #endif

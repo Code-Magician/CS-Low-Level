@@ -17,8 +17,6 @@
 
 void RunApplication()
 {
-    printf("Inside RunApplication\n");
-
     // SDL Init
     if (SDL_Init(SDL_INIT_VIDEO) == false)
     {
@@ -29,8 +27,6 @@ void RunApplication()
 
         return;
     }
-
-    printf("SDL Initialized\n");
 
     // TTF Init
     if (TTF_Init() == false)
@@ -43,8 +39,7 @@ void RunApplication()
         return;
     }
 
-    printf("TTF Initialized\n");
-    // Create Window
+    // Window
     SDL_Window* window =
         SDL_CreateWindow(
             "Beautiful Calculator",
@@ -63,9 +58,7 @@ void RunApplication()
         return;
     }
 
-    printf("Window Created\n");
-
-    // Create Renderer
+    // Renderer
     SDL_Renderer* renderer =
         SDL_CreateRenderer(
             window,
@@ -82,9 +75,7 @@ void RunApplication()
         return;
     }
 
-    printf("Renderer Created\n");
-
-    // Load Font
+    // Font
     TTF_Font* font =
         TTF_OpenFont(
             "assets/font.ttf",
@@ -101,9 +92,7 @@ void RunApplication()
         return;
     }
 
-    printf("Font Loaded\n");
-
-    // Button Labels
+    // Labels
     const char* labels[16] =
     {
         "7","8","9","/",
@@ -112,10 +101,9 @@ void RunApplication()
         "0",".","=","+"
     };
 
-    // Button Array
+    // Buttons
     Button buttons[16];
 
-    // Generate Buttons
     for (int i = 0; i < 16; i++)
     {
         int row = i / 4;
@@ -124,13 +112,7 @@ void RunApplication()
         SDL_Color normal = BUTTON_COLOR;
         SDL_Color hover = BUTTON_HOVER;
 
-        // Operator Colors
-        if (
-            strchr(
-                "+-*/=",
-                labels[i][0]
-            )
-        )
+        if (strchr("+-*/=", labels[i][0]))
         {
             normal = OPERATOR_COLOR;
             hover = OPERATOR_HOVER;
@@ -160,7 +142,10 @@ void RunApplication()
 
             .text = labels[i],
 
-            .hovered = false
+            .hovered = false,
+            .pressed = false,
+
+            .scale = 1.0f
         };
     }
 
@@ -174,9 +159,21 @@ void RunApplication()
 
     SDL_Event event;
 
+    Uint64 previousTicks =
+        SDL_GetTicks();
+
     // Main Loop
     while (running)
     {
+        Uint64 currentTicks =
+            SDL_GetTicks();
+
+        float deltaTime =
+            (currentTicks - previousTicks)
+            / 1000.0f;
+
+        previousTicks = currentTicks;
+
         float mouseX;
         float mouseY;
 
@@ -188,7 +185,6 @@ void RunApplication()
         // Events
         while (SDL_PollEvent(&event))
         {
-            // Close Window
             if (
                 event.type ==
                 SDL_EVENT_QUIT
@@ -197,7 +193,7 @@ void RunApplication()
                 running = false;
             }
 
-            // Mouse Click
+            // Mouse Down
             if (
                 event.type ==
                 SDL_EVENT_MOUSE_BUTTON_DOWN
@@ -213,15 +209,13 @@ void RunApplication()
                         )
                     )
                     {
+                        buttons[i].pressed = true;
+
                         const char* value =
                             buttons[i].text;
 
-                        // Equals
                         if (
-                            strcmp(
-                                value,
-                                "="
-                            ) == 0
+                            strcmp(value, "=") == 0
                         )
                         {
                             EvaluateExpression(
@@ -236,6 +230,18 @@ void RunApplication()
                             );
                         }
                     }
+                }
+            }
+
+            // Mouse Up
+            if (
+                event.type ==
+                SDL_EVENT_MOUSE_BUTTON_UP
+            )
+            {
+                for (int i = 0; i < 16; i++)
+                {
+                    buttons[i].pressed = false;
                 }
             }
         }
@@ -273,7 +279,7 @@ void RunApplication()
             &display
         );
 
-        // Expression Text
+        // Expression
         DrawText(
             renderer,
             font,
@@ -283,28 +289,40 @@ void RunApplication()
         );
 
         // Draw Buttons
-        for (int i = 0; i < 16; i++)
+    for (int i = 0; i < 16; i++)
+    {
+        buttons[i].hovered =
+            IsPointInsideButton(
+                &buttons[i],
+                mouseX,
+                mouseY
+            );
+
+        UpdateButtonAnimation(
+            &buttons[i],
+            deltaTime
+        );
+
+        DrawButton(
+            renderer,
+            &buttons[i]
+        );
+
+        SDL_FRect textRect =
         {
-            buttons[i].hovered =
-                IsPointInsideButton(
-                    &buttons[i],
-                    mouseX,
-                    mouseY
-                );
+            buttons[i].x,
+            buttons[i].y,
+            buttons[i].width,
+            buttons[i].height
+        };
 
-            DrawButton(
-                renderer,
-                &buttons[i]
-            );
-
-            DrawText(
-                renderer,
-                font,
-                buttons[i].text,
-                buttons[i].x + 28,
-                buttons[i].y + 20
-            );
-        }
+        DrawCenteredText(
+            renderer,
+            font,
+            buttons[i].text,
+            textRect
+        );
+    }
 
         SDL_RenderPresent(renderer);
     }
