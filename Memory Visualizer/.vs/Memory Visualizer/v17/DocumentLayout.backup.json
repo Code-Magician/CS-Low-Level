@@ -1,0 +1,116 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\CS\\Memory Visualizer\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|D:\\CS\\Memory Visualizer\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|solutionrelative:main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|D:\\CS\\Memory Visualizer\\memory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|solutionrelative:memory.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|D:\\CS\\Memory Visualizer\\memory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|solutionrelative:memory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|D:\\CS\\Memory Visualizer\\ui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|solutionrelative:ui.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|D:\\CS\\Memory Visualizer\\ui.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{C12E7AE9-C6D2-4A29-8929-05571F889276}|Memory Visualizer.vcxproj|solutionrelative:ui.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "main.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\main.c",
+              "RelativeDocumentMoniker": "main.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\main.c",
+              "RelativeToolTip": "main.c",
+              "ViewState": "AgIAAL4AAAAAAAAAAAAIwNAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-04T08:10:18.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "memory.h",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\memory.h",
+              "RelativeDocumentMoniker": "memory.h",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\memory.h",
+              "RelativeToolTip": "memory.h",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAAAEMAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-04T08:11:56.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "memory.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\memory.c",
+              "RelativeDocumentMoniker": "memory.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\memory.c",
+              "RelativeToolTip": "memory.c",
+              "ViewState": "AgIAANkBAAAAAAAAAAAIwAQCAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-04T08:12:17.842Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "ui.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\ui.c",
+              "RelativeDocumentMoniker": "ui.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\ui.c",
+              "RelativeToolTip": "ui.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-04T08:12:28.37Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ui.h",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\ui.h",
+              "RelativeDocumentMoniker": "ui.h",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\ui.h",
+              "RelativeToolTip": "ui.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-04T08:12:05.788Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
