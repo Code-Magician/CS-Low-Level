@@ -12,7 +12,7 @@ file(GLOB_RECURSE SOURCES
 add_executable(
     MemoryVisualizer
     ${SOURCES}
- "Include/UI/panel.h" "Src/UI/panel.c")
+ "Include/UI/panel.h" "Src/UI/panel.c" "Include/UI/text.h" "Src/UI/text.c" "Include/UI/Button.h" "Src/UI/Button.c")
 
 target_include_directories(
     MemoryVisualizer
@@ -30,4 +30,11 @@ target_link_libraries(
     PRIVATE
         SDL3::SDL3
         SDL3_ttf::SDL3_ttf
+)
+
+add_custom_command(
+    TARGET MemoryVisualizer POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        ${CMAKE_SOURCE_DIR}/assets
+        $<TARGET_FILE_DIR:MemoryVisualizer>/assets
 )

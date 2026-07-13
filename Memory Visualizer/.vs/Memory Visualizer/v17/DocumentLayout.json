@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "D:\\CS\\Memory Visualizer\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Src\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Src\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Src\\Core\\app.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Src\\Core\\app.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Src\\UI\\Button.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Src\\UI\\Button.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Include\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Include\\UI\\Button.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Src\\UI\\renderer.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -23,8 +27,16 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Src\\UI\\panel.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Src\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Src\\main.c||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\Include\\UI\\panel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Include\\UI\\panel.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\CS\\Memory Visualizer\\CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:CMakeLists.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,8 +46,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 6,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CMakeLists.txt",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\CMakeLists.txt",
+              "RelativeDocumentMoniker": "CMakeLists.txt",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\CMakeLists.txt",
+              "RelativeToolTip": "CMakeLists.txt",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-06-08T05:38:23.702Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
@@ -50,20 +76,59 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "renderer.c",
-              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\UI\\renderer.c",
-              "RelativeDocumentMoniker": "Src\\UI\\renderer.c",
-              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\UI\\renderer.c",
-              "RelativeToolTip": "Src\\UI\\renderer.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "Button.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\UI\\Button.c",
+              "RelativeDocumentMoniker": "Src\\UI\\Button.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\UI\\Button.c",
+              "RelativeToolTip": "Src\\UI\\Button.c",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-06-08T05:40:09.223Z",
+              "WhenOpened": "2026-06-08T07:25:40.546Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Button.h",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Include\\UI\\Button.h",
+              "RelativeDocumentMoniker": "Include\\UI\\Button.h",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\Include\\UI\\Button.h",
+              "RelativeToolTip": "Include\\UI\\Button.h",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-06-08T07:25:26.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\Core\\app.c",
+              "RelativeDocumentMoniker": "Src\\Core\\app.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\Core\\app.c",
+              "RelativeToolTip": "Src\\Core\\app.c",
+              "ViewState": "AgIAAHgAAAAAAAAAAAAAwKIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-08T07:14:14.829Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "renderer.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\UI\\renderer.c",
+              "RelativeDocumentMoniker": "Src\\UI\\renderer.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\UI\\renderer.c",
+              "RelativeToolTip": "Src\\UI\\renderer.c",
+              "ViewState": "AgIAAJUAAAAAAAAAAAAcwKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-08T07:11:28.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "renderer.h",
               "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Include\\UI\\renderer.h",
               "RelativeDocumentMoniker": "Include\\UI\\renderer.h",
@@ -71,59 +136,46 @@
               "RelativeToolTip": "Include\\UI\\renderer.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-08T05:39:58.552Z",
+              "WhenOpened": "2026-06-08T07:11:02.375Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "panel.c",
-              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\UI\\panel.c",
-              "RelativeDocumentMoniker": "Src\\UI\\panel.c",
-              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\UI\\panel.c",
-              "RelativeToolTip": "Src\\UI\\panel.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAARAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-06-08T05:39:18.841Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 7,
               "Title": "panel.h",
               "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Include\\UI\\panel.h",
               "RelativeDocumentMoniker": "Include\\UI\\panel.h",
               "ToolTip": "D:\\CS\\Memory Visualizer\\Include\\UI\\panel.h",
               "RelativeToolTip": "Include\\UI\\panel.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-06-08T05:39:01.577Z",
+              "WhenOpened": "2026-06-08T07:05:15.824Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CMakeLists.txt",
-              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\CMakeLists.txt",
-              "RelativeDocumentMoniker": "CMakeLists.txt",
-              "ToolTip": "D:\\CS\\Memory Visualizer\\CMakeLists.txt",
-              "RelativeToolTip": "CMakeLists.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-06-08T05:38:23.702Z",
+              "DocumentIndex": 5,
+              "Title": "panel.c",
+              "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\UI\\panel.c",
+              "RelativeDocumentMoniker": "Src\\UI\\panel.c",
+              "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\UI\\panel.c",
+              "RelativeToolTip": "Src\\UI\\panel.c",
+              "ViewState": "AgIAADcAAAAAAAAAAAAcwFMAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
+              "WhenOpened": "2026-06-08T07:04:53.46Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 6,
               "Title": "main.c",
               "DocumentMoniker": "D:\\CS\\Memory Visualizer\\Src\\main.c",
               "RelativeDocumentMoniker": "Src\\main.c",
               "ToolTip": "D:\\CS\\Memory Visualizer\\Src\\main.c",
               "RelativeToolTip": "Src\\main.c",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000423|",
-              "WhenOpened": "2026-06-08T05:36:45.958Z",
+              "WhenOpened": "2026-06-08T06:00:28.417Z",
               "EditorCaption": ""
             }
           ]

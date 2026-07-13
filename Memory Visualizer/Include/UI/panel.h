@@ -10,4 +10,13 @@ void DrawPanel(
     float width,
     float height);
 
+void DrawMemoryBlock(
+    SDL_Renderer* renderer,
+    float x,
+    float y,
+    float width,
+    float height,
+    const char* name,
+    int value);
+
 #endif
